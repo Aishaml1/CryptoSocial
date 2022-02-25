@@ -1,12 +1,12 @@
 pipeline {
-    agent any 
+    agent none
     stages {
-        stage('SCM Checkout') { 
+        stage('Build') { 
             steps { 
-                git branch: 'main', credentialsId: 'Github1', url: 'https://github.com/Aishaml1/CryptoSocial'
+            //
             }
         }
-        stage('Build') { 
+        stage('Test') { 
             steps {
                 // 
             }
