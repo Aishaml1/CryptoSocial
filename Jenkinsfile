@@ -1,9 +1,19 @@
 pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') { 
+            steps { 
+            git branch: 'main', credentialsId: 'Github1', url: 'https://github.com/Aishaml1/CryptoSocial'
+            }
+        }
+        stage('Test') { 
             steps {
-                sh 'python --version'
+                // 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                // 
             }
         }
     }
