@@ -1,20 +1,25 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') { 
-            steps { 
-            git branch: 'main', credentialsId: 'Github1', url: 'https://github.com/Aishaml1/CryptoSocial'
-            }
+ pipeline {
+        agent {
+            docker { image 'python:3.9' }
         }
-        stage('Test') { 
-            steps {
-                // 
+        stages {
+            stage('Build') {
+                steps {
+                    //install all the packages 
+                    sh 'pip install -r requirements.txt'
+                }
             }
-        }
-        stage('Deploy') { 
-            steps {
-                // 
+
+            stage('Test') {
+                steps {
+                    sh 'python CryptoNetwork/manage.py test ./CryptoNetwork'
+                }
+            }
+
+            stage('Deploy') {
+                steps {
+                    sh 'none yet'
+                }
             }
         }
     }
-}
