@@ -8,6 +8,6 @@ class ProfileModelForm(forms.ModelForm):
                 'last_name', 
                 'bio', 
                 'avatar', 
-                'collection',
+                'collect',
                 'other'
                 )

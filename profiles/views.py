@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import CCollect
 from django.views.generic.edit import CreateView
 # Create your views here.
 

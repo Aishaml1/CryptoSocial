@@ -34,25 +34,6 @@ class ProfileManager(models.Manager):
         profiles = Profile.objects.all().exclude(user=me)
         return profiles
 
-CRYP = (
-    ('Bitcoin', 'Bitcoin'),
-    ('Ethereum', 'Ethereum'),
-    ('Tether', 'Tether'),
-    ('Solana', 'Solana'),
-    ('XRP', 'XRP'),
-    ('Dogecoin', 'Dogecoin'),
-    ('Polkadot(DOT)', 'Polkadot(DOT)'),
-    ('Other', 'OTHER'),
-)
-
-class CCollect(models.Model):
-    crypcollection = models.CharField(
-        max_length=20,
-        choices=CRYP,
-        default=CRYP[0][0]
-    )
-    other = models.CharField(max_length=100)
-
 
 CRYPTO = (
     ('BTC', 'Bitcoin'),
@@ -77,13 +58,14 @@ class Profile(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    collection = models.CharField(
+    collect = models.CharField(
         max_length=20,
         choices=CRYPTO,
         default=CRYPTO[0][0]
     )
     other = models.CharField(max_length=200, blank=True)
-    
+
+
     objects = ProfileManager()
 
     def __str__(self):
