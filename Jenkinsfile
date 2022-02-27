@@ -17,7 +17,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    sh 'echo "hello"'
+                    sh 'python3 -m ./tests/test_p1.py --verbose'
                 }
             }
         }
