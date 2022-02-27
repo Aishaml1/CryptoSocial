@@ -1,8 +1,15 @@
 import pytest
-from django.test import TestCase
-
-def test_example():
-    assert 1 == 1
-    
-def test_example1():
-    assert 1 == 1
+ 
+ 
+@pytest.mark.skip("This is going to be skipped")
+def test_skipper():
+    x = 10 / 0
+ 
+ 
+@pytest.mark.xfail(reason="So we can check xfail that fails")
+def test_known_bug():
+    assert 7 == 8
+ 
+@pytest.mark.xfail(reason="So we can check xfail that succeeds")
+def test_fixed_bug():
+    assert 10 == 10
