@@ -8,18 +8,17 @@ pipeline {
             }
             stage('Build') {
                 steps {
-                    //cleans up work space
-                    step([$class: 'WsCleanup' ])
-                    //clone repo
+                    //clone repository 
                     sh 'git clone https://github.com/Aishaml1/CryptoSocial.git'
+                    // install all packages
+                    sh 'pip install -r requirements.txt'
                     //package python application and copy to remote server
-
                 }
             }
             stage('Test') {
                 steps {
                     //verbose displays or gets extended information.
-                    sh 'python3 -m  pytest CryptoSocial/tests/test_p1.py --verbose'
+                    sh 'python3 -m  pytest CryptoSocial/tests/test_p1.py --verbose '
                 }
             }
         }
