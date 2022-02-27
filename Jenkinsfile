@@ -3,11 +3,12 @@ pipeline {
         stages {
             stage('SCM checkout') {
                 steps {
-                    git branch: 'main', credentialsId: 'Github1', url: 'https://github.com/Aishaml1/CryptoSocial'
+                   git branch: 'main', credentialsId: 'Github1', url: 'https://github.com/Aishaml1/CryptoSocial'
                 }
             }
             stage('Build') {
                 steps {
+
                     //a plug in that cleans up our workspace
                     step($class:wsCleanup)
                     //clone repository 
