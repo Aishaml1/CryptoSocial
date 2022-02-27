@@ -17,7 +17,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    echo 'the job has been tested'
+                    sh 'python3 -m pytest ./tests/test_p1.py --verbose'
                 }
             }
         }
