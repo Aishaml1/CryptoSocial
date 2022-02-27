@@ -17,7 +17,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    sh 'python3 CryptoSocial/tests/helloworld.py'
+                    sh 'python3 -m pytest CryptoSocial/tests/test_p1.py --verbose'
                 }
             }
         }
