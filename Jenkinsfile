@@ -17,7 +17,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    sh 'python3 .\tests\helloworld.py'
+                    sh 'python3 ./tests/helloworld.py'
                 }
             }
         }
