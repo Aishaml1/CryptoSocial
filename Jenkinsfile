@@ -14,7 +14,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    sh 'python3 -m pytest CryptoNetwork/tests/test_p1 --verbose'
+                    sh 'python3 -m pytest CryptoNetwork/tests/test_p1.py --verbose'
                 }
             }
         }
