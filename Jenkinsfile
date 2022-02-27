@@ -8,11 +8,15 @@ pipeline {
             }
             stage('Build') {
                 steps {
+                    //a plug in that cleans up our workspace
+                    step($class:wsCleanup)
                     //clone repository 
                     sh 'git clone https://github.com/Aishaml1/CryptoSocial.git'
                     // install all packages
                     sh 'pip install -r requirements.txt'
-                    //package python application and copy to remote server
+                    //Build, Distribute, and Install Project
+                    //package python project and get it ready for distribution
+                    sh 'cd CryptoNetwork; python3 setup.py build'
                 }
             }
             stage('Test') {
