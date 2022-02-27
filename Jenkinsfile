@@ -14,7 +14,7 @@ pipeline {
             }
             stage('Test') {
                 steps {
-                    sh 'python3 CryptoNetwork/manage.py test ./CryptoNetwork'
+                    sh 'python3 -m pytest CryptoNetwork/tests/test_p1'
                 }
             }
         }
