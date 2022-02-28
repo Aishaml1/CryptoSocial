@@ -14,9 +14,6 @@ pipeline {
                     sh 'git clone https://github.com/Aishaml1/CryptoSocial.git'
                     // install all packages
                     sh 'pip install -r requirements.txt'
-                    //Build, Distribute, and Install Project
-                    //package python project and get it ready for distribution
-                    sh 'cd CryptoNetwork; python3 setup.py build'
                 }
             }
             stage('Test') {
